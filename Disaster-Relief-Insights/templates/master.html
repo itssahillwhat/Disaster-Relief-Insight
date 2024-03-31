@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disaster Relief Insights</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav-link {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+        }
+        .jumbotron {
+            background-image: url('https://imgs.search.brave.com/jautBpgkU9q-ZPjmPRm1woGAzwZkXS7Zmafov14dn2g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/d29ybGR2aXNpb24u/Y29tLmF1L2ltYWdl/cy9kZWZhdWx0LXNv/dXJjZS9lbWVyZ2Vu/Y2llcy93ZXN0LWJh/bmstY2hpbGQtcmVz/aWxpZW5jZS1hcHBl/YWwvZW1lcmdlbmN5/LXdlc3QtYmFuay5q/cGc_c2Z2cnNuPWZm/OWM5ZDNjXzI');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 150px 0;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .jumbotron p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .jumbotron .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 0;
+        }
+        .content-card, .resource-card {
+            background-color: #000;
+            color: #fff;
+            padding: 20px; /* Add padding to give space around the content */
+            margin: 0 10px; /* Add equal margin from all sides */
+            border-radius: 10px;
+        }
+        .graph-card, .resource-card {
+            position: relative;
+            z-index: 2;
+            overflow: hidden; /* Hide any overflow from the graph */
+            margin: 0 -10px; /* Compensate for the padding in the content card */
+        }
+        .resource-bar {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .resource-bar:hover {
+            background-color: #222;
+        }
+        .resource-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .resource-link:hover {
+            color: orange;
+        }
+        /* New CSS for the Classify button */
+        .classify-btn {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .classify-btn:hover {
+            background-color: #222;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">Disaster Relief Insights</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.disasterassistance.gov/">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#resources">Educational Resources</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Disaster Relief Insights</h1>
+        <p class="lead">Analyze messages for disaster response</p>
+        <form action="/go" method="get">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control-lg" name="query" placeholder="Enter a message to classify">
+            </div>
+            <!-- Classify button below the text field -->
+            <button type="submit" class="btn btn-success btn-lg classify-btn">Classify Message</button>
+        </form>
+    </div>
+</div>
+<div class="container-fluid bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        {% block content %}
+                            <div id="resources" class="card shadow mb-4 resource-card">
+                                <div class="card-body">
+                                    <h3>Educational Resources</h3>
+                                    <a href="https://www.ready.gov/" class="resource-link">Disaster Preparedness</a><br/>
+                                    <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies.html" class="resource-link">Disaster Response Strategies</a><br/>
+                                    <a href="https://www.unhcr.org/emergencies.html" class="resource-link">Humanitarian Efforts</a><br/>
+                                    <a href="#" class="resource-link">Disaster Relief Insights Blog</a>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Disaster Relief Insights. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
