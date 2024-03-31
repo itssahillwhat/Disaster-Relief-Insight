@@ -5,7 +5,7 @@
 
 * Additionally, a machine learning pipeline is devised to categorize these messages, directing them to the appropriate disaster relief agencies based on their content and context.
 
-* Furthermore, the project encompasses the development of a user-friendly web application, equipped with insightful visualizations. This application aids emergency personnel in efficiently classifying new messages across a spectrum of 36 categories.
+* Furthermore, the project encompasses the development of a user-friendly web application, equipped with insightful visualizations. This application aids emergency personnel in efficiently classifying new messages across a spectrum of 36 categories..
 
 * The deployment of machine learning techniques is pivotal in assisting diverse organizations in discerning the relevance of incoming messages and prioritizing them accordingly.
 
