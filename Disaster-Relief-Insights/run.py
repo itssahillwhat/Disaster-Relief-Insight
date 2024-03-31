@@ -9,7 +9,7 @@ from plotly.graph_objs import Bar
 # from sklearn.externals
 import joblib
 # from sklearn.base import BaseEstimator, TransformerMixin
-from sqlalchemy import create_engine
+from SQLAlchemy import create_engine
 # import dill as pickle
 import utils
 
